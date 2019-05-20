@@ -1,0 +1,34 @@
+version: "2.0"
+services:
+  app:
+    image: "node:12.1.0-alpine"
+    container_name: "nodejs"
+    volumes:
+      - ".:/home/node/app"
+    ports:
+      - "8080:8080"
+    working_dir: "/home/node/app"
+    command: "npx pm2 start ecosystem.config.js --no-daemon"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    container_name: "mongo"
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongoclient:
+    image: mongoclient/mongoclient:2.2.0
+    container_name: "mongoclient"
+    depends_on:
+      - mongo
+      - app
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URL: "mongodb://root:example@mongo:27017/test"
+      MONGOCLIENT_DEFAULT_CONNECTION_URL: "mongodb://root:example@mongo:27017/test"

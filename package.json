@@ -1,0 +1,9 @@
+{
+  "name": "node-sandbox-mangoose",
+  "version": "0.0.1",
+  "main": "./public/main.js",
+  "description": "sandbox to fiddle with mongoose",
+  "dependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
