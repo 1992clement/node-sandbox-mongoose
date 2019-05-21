@@ -19,5 +19,5 @@
 ## nosqlclient
 [Doc here](https://www.nosqlclient.com/docs/)
 
-## Operation
-The app produces a "Kitty" schema and model at runtime. Everytime localhost is hit, a new kitty is generated and inserted in mongoDB. 
+## Functioning
+The app produces a "Kitty" schema and model at runtime. Everytime localhost is hit, a new kitty is generated and inserted in mongoDB. Then, it logs al the kittens into the console.

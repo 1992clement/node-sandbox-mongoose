@@ -22,12 +22,12 @@ kittySchema.methods.speak = function(){
 var Kitty = mongoose.model('Kitty', kittySchema);
 
 app.get('/', function(req, res){
-  var pussy = new Kitty({name: "pussy"});
+  var kitty = new Kitty({name: "toto"});
 
   //insert into collection
-  pussy.save(function(err, pussy){
+  kitty.save(function(err, kitty){
     if(err) return console.error(err);
-    console.log('pussy saved !');
+    console.log('Kitty saved !');
 
     //display all kittens in collection
     Kitty.find(function(err, kittens){
